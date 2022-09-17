@@ -1,10 +1,11 @@
-﻿using Agencia_viajes_dse.Data.Enum;
+﻿using Agencia_viajes_dse.Data.Base;
+using Agencia_viajes_dse.Data.Enum;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Agencia_viajes_dse.Models
 {
-    public class Destino
+    public class Destino:IEntityBase
     {
         [Key]
         public int Id { get; set; }
