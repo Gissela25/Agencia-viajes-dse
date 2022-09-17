@@ -20,8 +20,6 @@ namespace Agencia_viajes_dse.Models
         public List<Destino_AR> Destinos_ARs { get; set; }
         public List<Destino_Gastos> Destinos_Gastos { get; set; }
 
-        public List<Img> Imgs { get; set; }
-
         public List<Reservacion> Reservaciones { get; set; }
     }
 }
