@@ -3,44 +3,182 @@
 @{
     ViewData["Title"] = "Detalles del lugar";
 }
-<div class="row">
+<div class="container text-center">
+    <div class="row">
+        <div class="col-md-4  offset-md-4 text-center">
+            <h1>@Model.Nombre</h1>
+        </div>
+        <hr class="my-2" />
+        <div class="col">
+            <div class="mt-5">
+                <div class="pt-5">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img width="200" height="375" class="d-block w-100" src="@Model.Img" />
+                            </div>
+                            <div class="carousel-item">
+                                <img width="200" height="375" class="d-block w-100" src="@Model.Img2" />
+                            </div>
+                            <div class="carousel-item">
+                                <img width="200" height="375" class="d-block w-100" src="@Model.Img3" />
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-8 col-sm-6">
+            <div class="card text-center">
+                <div class="card-header">
+                    Detalles de @Model.Nombre
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Descripcion</h5>
+                    <p class="card-text">@Model.Descripcion</p>
+                    <p><b>Costos Adicionales</b></p>
+                    @foreach (var rec in Model.Destinos_Gastos)
+                    {
+                        <p class="text">@rec.Gastos_Extra.Nombre</p>
+                    }
+                    <p><b>Recomendaciones /  Avisos</b></p>
+                    @foreach (var ar in Model.Destinos_ARs)
+                    {
+                        <p class="text">@ar.AR.Descripcion</p>
+                    }
+                    <p><b>Tipo de lugar</b></p>
 
-    <div class="row py-3">
-            <div class="col-md-4  offset-md-4 text-center">
-       <h1>@Model.Nombre</h1>
+                    <p class="text">@Model.TLugar</p>
+                    <p><b>Tipo de Destino</b></p>
+
+                    <p class="text">@Model.TDestino</p>
+                </div>
+                <div class="card-footer text-muted">
+                    $@Model.Costo_Principal
+                </div>
+            </div>
+        </div>
     </div>
-    <hr class="my-2"/>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*
+@*
+<div class="row">
+*@
+
+
+
+
+
+
+
+
+
+
+@*
+    <div class="row py-3">
+        <div class="col-md-4  offset-md-4 text-center">
+            <h1>@Model.Nombre</h1>
+        </div>
+        <hr class="my-2" />
+        <div class="row">
+            <div class="col-md-5">
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img width="200" height="375" class="d-block w-100" src="@Model.Img" />
+                        </div>
+                        <div class="carousel-item">
+                            <img width="200" height="375" class="d-block w-100" src="@Model.Img2" />
+                        </div>
+                        <div class="carousel-item">
+                            <img width="200" height="375" class="d-block w-100" src="@Model.Img3" />
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-4 align-content-center">
+            <p><b class="my-2">Descripción</b></p>
+            <p>@Model.Descripcion</p>
+        </div>
     </div>
     <div class="row">
-         <div class="col-md-3">
-             <h4 class="py-2">Detalles de @Model.Nombre</h4>
-             <p><b>Costos Adicionales</b></p>
-        @foreach (var rec in Model.Destinos_Gastos)
-        {
-           <p class="text">@rec.Gastos_Extra.Nombre</p>
-        }
-        <p><b>Recomendaciones /  Avisos</b></p>
-                @foreach (var ar in Model.Destinos_ARs)
-        {
-           <p class="text">@ar.AR.Descripcion</p>
-        }
-         <p><b>Tipo de lugar</b></p>
-             
-           <p class="text">@Model.TLugar</p>
-         <p><b>Tipo de Destino</b></p>
-             
-           <p class="text">@Model.TDestino</p>
+        <div class="col-md-3">
+            <h4 class="py-2">Detalles de @Model.Nombre</h4>
+            <p><b>Costos Adicionales</b></p>
+            @foreach (var rec in Model.Destinos_Gastos)
+            {
+                <p class="text">@rec.Gastos_Extra.Nombre</p>
+            }
+            <p><b>Recomendaciones /  Avisos</b></p>
+            @foreach (var ar in Model.Destinos_ARs)
+            {
+                <p class="text">@ar.AR.Descripcion</p>
+            }
+            <p><b>Tipo de lugar</b></p>
+
+            <p class="text">@Model.TLugar</p>
+            <p><b>Tipo de Destino</b></p>
+
+            <p class="text">@Model.TDestino</p>
+        </div>
+        <div class="col-md-5">
+            <img width="475" height="275" class="py-2" src="@Model.Img" />
+            <img width="475" height="275" class="py-2" src="@Model.Img2" />
+            <img width="475" height="275" class="py-2" src="@Model.Img3" />
+        </div>
+        <div class="col-md-4 align-content-center">
+            <p><b class="my-2">Descripción</b></p>
+            <p>@Model.Descripcion</p>
+        </div>
     </div>
-    <div class="col-md-5">
-        <img width="475" height="275" class="py-2" src="@Model.Img"/>
-        <img  width="475" height="275" class="py-2" src="@Model.Img2"/>
-        <img width="475" height="275" class="py-2" src="@Model.Img3"/>
-    </div>
-    <div class="col-md-4 align-content-center">
-       <p><b class="my-2">Descripción</b></p>
-        <p>@Model.Descripcion</p>
-    </div>
-    </div>
-   
+
 
 </div>
+</div>*@
