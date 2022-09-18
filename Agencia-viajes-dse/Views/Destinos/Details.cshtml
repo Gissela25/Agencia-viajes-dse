@@ -1,0 +1,46 @@
+﻿@model Destino
+
+@{
+    ViewData["Title"] = "Detalles del lugar";
+}
+<div class="row">
+
+    <div class="row py-3">
+            <div class="col-md-4  offset-md-4 text-center">
+       <h1>@Model.Nombre</h1>
+    </div>
+    <hr class="my-2"/>
+    </div>
+    <div class="row">
+         <div class="col-md-3">
+             <h4 class="py-2">Detalles de @Model.Nombre</h4>
+             <p><b>Costos Adicionales</b></p>
+        @foreach (var rec in Model.Destinos_Gastos)
+        {
+           <p class="text">@rec.Gastos_Extra.Nombre</p>
+        }
+        <p><b>Recomendaciones /  Avisos</b></p>
+                @foreach (var ar in Model.Destinos_ARs)
+        {
+           <p class="text">@ar.AR.Descripcion</p>
+        }
+         <p><b>Tipo de lugar</b></p>
+             
+           <p class="text">@Model.TLugar</p>
+         <p><b>Tipo de Destino</b></p>
+             
+           <p class="text">@Model.TDestino</p>
+    </div>
+    <div class="col-md-5">
+        <img width="475" height="275" class="py-2" src="@Model.Img"/>
+        <img  width="475" height="275" class="py-2" src="@Model.Img2"/>
+        <img width="475" height="275" class="py-2" src="@Model.Img3"/>
+    </div>
+    <div class="col-md-4 align-content-center">
+       <p><b class="my-2">Descripción</b></p>
+        <p>@Model.Descripcion</p>
+    </div>
+    </div>
+   
+
+</div>

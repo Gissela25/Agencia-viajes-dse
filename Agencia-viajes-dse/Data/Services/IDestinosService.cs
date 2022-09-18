@@ -8,5 +8,9 @@ namespace Agencia_viajes_dse.Data.Services
     {
         Task<Destino> GetDestinoByIdAsync(int id);
         Task<NewDestinoDropdownsVM> GetNewDestinoDropdownsValues();
+
+        Task AddNewDestinoAsync(NewDestinoVM data);
+
+        Task UpdateDestinoAsync(NewDestinoVM data);
     }
 }

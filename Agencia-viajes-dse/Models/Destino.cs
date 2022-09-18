@@ -10,6 +10,7 @@ namespace Agencia_viajes_dse.Models
         [Key]
         public int Id { get; set; }
         public string Nombre { get; set; }
+        public string Descripcion { get; set; }
         public double Costo_Principal { get; set; }
         public TDestino TDestino { get; set; }
         public TLugar TLugar { get; set; }

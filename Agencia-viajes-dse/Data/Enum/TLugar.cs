@@ -5,7 +5,13 @@
         Playa = 1,
         Montaña, 
         Desierto,
-        Pueblo
+        Pueblo,
+        Cerro,
+        Bosque,
+        Parque,
+        Rio,
+        Ciudad,
+        Puerto
 
     }
 }
