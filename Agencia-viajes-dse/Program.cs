@@ -9,6 +9,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString")));
 builder.Services.AddScoped<IDestinosService,DestinosService>();
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IARsService, ARsService>();
+builder.Services.AddScoped<IGEsService, GEsService>();
 
 var app = builder.Build();
 
