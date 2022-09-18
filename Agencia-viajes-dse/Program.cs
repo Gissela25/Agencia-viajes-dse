@@ -11,6 +11,8 @@ builder.Services.AddScoped<IDestinosService,DestinosService>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IARsService, ARsService>();
 builder.Services.AddScoped<IGEsService, GEsService>();
+builder.Services.AddScoped<IReservacionesService, ReservacionesService>();
+
 
 var app = builder.Build();
 

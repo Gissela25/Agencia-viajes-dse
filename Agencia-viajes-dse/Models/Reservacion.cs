@@ -1,9 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Agencia_viajes_dse.Data.Base;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Agencia_viajes_dse.Models
 {
-    public class Reservacion
+    public class Reservacion:IEntityBase
     {
         [Key]
         public int Id { get; set; }
