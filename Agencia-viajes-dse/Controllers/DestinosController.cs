@@ -20,6 +20,46 @@ namespace Agencia_viajes_dse.Controllers
             var allDestinos = await _service.GetAllAsync();
             return View(allDestinos);
         }
+        public async Task<IActionResult> Filter(string searchString)
+        {
+            var allDestinos = await _service.GetAllAsync();
+            if(!string.IsNullOrEmpty(searchString))
+            {
+                var filteredResult = allDestinos.Where(n => n.Nombre.Contains(searchString) || n.Descripcion.Contains(searchString)
+                || n.TLugar.ToString().Contains(searchString)
+                || n.TDestino.ToString().Contains(searchString)).ToList();
+                return View("Index", filteredResult);
+            }
+            return View("Index", allDestinos);
+        }
+
+        public async Task<IActionResult> Filters(string searchByPlace, string searhByDestination, string searhByPrice)
+        {
+            var allDestinos = await _service.GetAllAsync();
+            //if (!string.IsNullOrEmpty(searchByPlace) || !string.IsNullOrEmpty(searhByDestination))
+            //{
+            //    var filteredResult = allDestinos.Where(n => n.TLugar.ToString().Contains(searchByPlace)
+            //    & n.TDestino.ToString().Contains(searhByDestination)
+            //    & n.Costo_Principal <= searhByPrice
+            //    || n.Costo_Principal <= searhByPrice).ToList();
+            //    return View("Index", filteredResult);
+            //}
+            if(!string.IsNullOrEmpty(searchByPlace))
+            {
+                allDestinos = allDestinos.Where(n => n.TLugar.ToString().Contains(searchByPlace)).ToList();
+            }
+            if (!string.IsNullOrEmpty(searhByDestination))
+            {
+                allDestinos = allDestinos.Where(n => n.TDestino.ToString().Contains(searhByDestination)).ToList();
+            }
+            if(!string.IsNullOrEmpty(searhByPrice))
+            {
+                double price = double.Parse(searhByPrice);
+                allDestinos = allDestinos.Where(n => n.Costo_Principal <= price).ToList();
+            }
+            return View("Index", allDestinos);
+        }
+
 
         public async Task<IActionResult> Details(int id)
         {
