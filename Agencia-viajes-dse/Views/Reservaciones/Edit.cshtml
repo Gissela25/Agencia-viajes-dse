@@ -5,53 +5,71 @@
 
 <div class="row">
     <div class="col-md-8 offset-md-2">
-        <h4>Editanto Reserva</h4>
+        <h4 class="text-center">Editanto Reservacion de @Model.Nombre</h4>
         <div class="row">
             <form asp-action="Edit">
-                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                 <div class="row">
-                     <div class="col-md-6">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="row">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label asp-for="Nombre" class="form-label"></label>
-                            <input asp-for="Nombre" class="form-control"/>
+                            <div class="input-group mb-3">
+                                <span class="text-white input-group-text" style="background-color: #25316D;" id="basic-addon1"><i class="bi bi-person-fill"></i></span>
+                                <input asp-for="Nombre" class="form-control" />
+                            </div>
                             <span asp-validation-for="Nombre" class="text-danger"></span>
                         </div>
-                         <div class="form-group">
+                        <div class="form-group">
                             <label asp-for="Apellido" class="form-label"></label>
-                            <input asp-for="Apellido" class="form-control"/>
+                            <div class="input-group mb-3">
+                                <span class="text-white input-group-text" style="background-color: #25316D;" id="basic-addon1"><i class="bi bi-person-fill"></i></span>
+                                <input asp-for="Apellido" class="form-control" />
+                            </div>
                             <span asp-validation-for="Apellido" class="text-danger"></span>
                         </div>
-                         <div class="form-group">
+                        <div class="form-group">
                             <label asp-for="Correo" class="form-label"></label>
-                            <input asp-for="Correo" type="email" class="form-control"/>
+                            <div class="input-group mb-3">
+                                <span class="text-white input-group-text" style="background-color: #25316D;" id="basic-addon1"><i class="bi bi-envelope"></i></span>
+                                <input asp-for="Correo" type="email" class="form-control" />
+                            </div>
                             <span asp-validation-for="Correo" class="text-danger"></span>
                         </div>
-                     </div>
-                     <div class="col-md-6">
-                         <div class="form-group">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
                             <label asp-for="FechaSalida" class="form-label"></label>
-                            <input asp-for="FechaSalida" type="date" class="form-control"/>
+                            <div class="input-group mb-3">
+                                <span class="text-white input-group-text" style="background-color: #25316D;" id="basic-addon1"><i class="bi bi-calendar-fill"></i></span>
+                                <input asp-for="FechaSalida" type="date" class="form-control" />
+                            </div>
                             <span asp-validation-for="FechaSalida" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <label asp-for="FechaRegreso" class="form-label"></label>
-                            <input asp-for="FechaRegreso" type="date" class="form-control"/>
+                            <div class="input-group mb-3">
+                                <span class="text-white input-group-text" style="background-color: #25316D;" id="basic-addon1"><i class="bi bi-calendar-minus-fill"></i></span>
+                                <input asp-for="FechaRegreso" type="date" class="form-control" />
+                            </div>
                             <span asp-validation-for="FechaRegreso" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <label asp-for="Id_Destinos" class="form-label"></label>
-                            <select asp-for="Id_Destinos" class="form-control"  asp-items="ViewBag.destinos"></select>
+                            <div class="input-group mb-3">
+                                <span class="text-white input-group-text" style="background-color: #25316D;" id="basic-addon1"><i class="bi bi-airplane-engines-fill"></i></span>
+                                <select asp-for="Id_Destinos" class="form-control" asp-items="ViewBag.destinos"></select>
+                            </div>
                             <span asp-validation-for="Id_Destinos" class="text-danger"></span>
                         </div>
-                     </div>
-                 </div>
-
-                 
-                    
-                    <div class="form-group">
-                        <input type="submit" value="Edit" class="btn btn-outline-success float-right" />
-                        <a class="btn btn-outline-secondary" asp-controller="Destinos" asp-action="Index">Show all</a>
                     </div>
+                </div>
+
+
+
+                <div class="form-group vstack gap-2 col-md-5 mx-auto">
+                    <input type="submit" value="Actualizar" class="btn btn-secondary" />
+                    <a class="btn btn-info" asp-controller="Destinos" asp-action="Index"><i class="bi bi-arrow-return-left"></i></a>
+                </div>
             </form>
         </div>
     </div>

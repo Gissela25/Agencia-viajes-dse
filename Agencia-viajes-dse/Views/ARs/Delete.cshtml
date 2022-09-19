@@ -5,7 +5,7 @@
 <div class="row text">
     <div class="col-md-8 offset-2">
         <p>
-            <h1>Delete confirmation  for @Model.Nombre</h1>
+            <h1 class="text-center">Confirmando eliminacion de @Model.Nombre</h1>
         </p>
         <div class="row">
             <div class="col-md-10 offset-1">
@@ -16,20 +16,26 @@
                     </div>*@
                     <div class="form-group">
                         <label asp-for="Nombre" class="control-label"></label>
+                        <div class="input-group mb-3">
+                            <span class="text-white input-group-text" style="background-color: #25316D;" id="basic-addon1"><i class="bi bi-card-checklist"></i></span>
                         <input asp-for="Nombre" class="form-control" readonly />
+                        </div>
                         <span asp-validation-for="Nombre" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Descripcion" class="control-label"></label>
+                        <div class="input-group mb-3">
+                            <span class="text-white input-group-text" style="background-color: #25316D;" id="basic-addon1"><i class="bi bi-window-fullscreen"></i></span>
                         <input asp-for="Descripcion" class="form-control" readonly />
+                        </div>
                         <span asp-validation-for="Descripcion" class="text-danger"></span>
                     </div>
-                    <div class="form-group py-3">
+                    <div class="form-group vstack gap-2 col-md-5 mx-auto mt-4">
                         <form asp-action="Delete" >
                             <input type="hidden" asp-for="Id" />
-                            <input type="submit" value="Confirm" class="btn btn-danger float-right" /> 
+                            <input type="submit" value="Eliminar" class="btn btn-secondary" /> 
                         </form>
-                        <a class="btn btn-outline-secondary" asp-action="Index">Show All</a>
+                        <a class="btn btn-info" asp-action="Index"><i class="bi bi-arrow-return-left"></i></a>
                     </div>
             </div>
         </div>

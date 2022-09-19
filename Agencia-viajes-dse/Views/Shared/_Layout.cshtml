@@ -33,6 +33,9 @@
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-controller="GEs" asp-action="Index"><i class="bi bi-cash-coin"></i> Gastos Extra</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Reservaciones" asp-action="Index"><i class="bi bi-bookmark-fill"></i> Reservaciones</a>
+                        </li>
                     @*    <li class="nav-item">
                             <a class="dropdown-item" asp-controller="Destinos" asp-action="Index"><i class="bi bi-ticket"></i>Destinos</a>
                         </li>
@@ -44,9 +47,9 @@
                         </li>*@
 
                     </ul>
-                     <form class="form-inline my-2 my-lg-0" asp-controller="Destinos" asp-action="Filter" style="padding-right: 25px;">
-                    <input style="display:flex" name="searchString" type="text" class="form-control" placeholder="Search for a movie..." aria-label="Recipient's username" aria-describedby="button-addon2">
-                    <button style="display:flex" class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
+                     <form class="hstack gap-3" asp-controller="Destinos" asp-action="Filter" style="padding-right: 25px;">
+                    <input style="display:flex" name="searchString" type="text" class="form-control me-auto" placeholder="Search for a movie..." aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <button style="display:flex" class="btn btn-outline-secondary text-white my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
                     </form>
                 </div>
             </div>
