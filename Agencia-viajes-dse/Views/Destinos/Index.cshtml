@@ -1,9 +1,20 @@
-﻿@model IEnumerable<Destino>
+﻿@using Agencia_viajes_dse.Data.Enum
+@model IEnumerable<Destino>
 @{
     ViewData["Title"] = "Lugares Turíscticos";
 }
 
 <div class="row">
+    <div class="row">
+                        <form class="form-inline my-2 my-lg-0" asp-controller="Destinos" asp-action="Filters">
+                            
+                            <input name="searchByPlace" type="text" placeholder="Tipo Lugar (Playa, Cerro, etc..)" />
+                            <input name="searhByDestination" type="text" placeholder="Nacional / Internacional" />
+                            <input type="range" id="rango" name="searhByPrice" min="10" max="2500" step="10" value="300"/>
+                            <span id="money">300 USD</span>
+                            <button asp-action="Filters" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        </form>
+    </div>
     @foreach (var item in Model)
     {
         <div class="col-md-4 col-xs-6 border-primary mb-3">
@@ -46,7 +57,9 @@
 
                                 }
                             </p>*@
-                            <p class="card-text"> <b> Precio: </b>@item.Costo_Principal $</p>
+                            <p class="card-text"> <b> Precio: </b>@item.Costo_Principal $
+                            @item.TDestino    
+                            </p>
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -63,5 +76,12 @@
         </div>
     }
 </div>
+@section Scripts{
+    <script>
+      $("#rango").on("change keyup paste click propertychange mousedown", function(){
+    			document.getElementById("money").innerHTML= $("#rango").val();+"USD";
+		});
+    </script>
+}
 
                             @await Html.PartialAsync("_CreateItem", "Destinos") 
