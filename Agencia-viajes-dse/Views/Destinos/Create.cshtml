@@ -4,9 +4,9 @@
 @{
     ViewData["Title"] = "Agregar nuevo destino";
 }
-<div class="row"> 
+<div class="row">
     <div class="col-md-8 offset-md-2">
-        <p>Agregar un nuevo Destino</p>
+        <h3 class="text-center">Agregar nuevo destino</h3>
         <div class="row">
             <form asp-action="Create">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -14,7 +14,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label asp-for="Nombre" class="form-label"></label>
-                            <input asp-for="Nombre" class="form-control"/>
+                            <input asp-for="Nombre" class="form-control"  />
                             <span asp-validation-for="Nombre" class="text-danger"></span>
                         </div>
                         <div class="form-group">
@@ -29,17 +29,17 @@
                         </div>
                         <div class="form-group">
                             <label asp-for="TLugar" class="form-label"></label>
-                            <select asp-for="TLugar" class="form-control"  asp-items="Html.GetEnumSelectList<TLugar>()"></select>
+                            <select asp-for="TLugar" class="form-control" asp-items="Html.GetEnumSelectList<TLugar>()"></select>
                             <span asp-validation-for="TLugar" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <label asp-for="Img" class="form-label"></label>
-                            <input asp-for="Img" class="form-control"/>
+                            <input asp-for="Img" class="form-control"  />
                             <span asp-validation-for="Img" class="text-danger"></span>
                         </div>
-                         <div class="form-group">
+                        <div class="form-group">
                             <label asp-for="Img2" class="form-label"></label>
-                            <input asp-for="Img2" class="form-control"/>
+                            <input asp-for="Img2" class="form-control"  />
                             <span asp-validation-for="Img2" class="text-danger"></span>
                         </div>
 
@@ -58,46 +58,46 @@
                         </div>
                         <div class="form-group">
                             <label asp-for="TDestino" class="form-label"></label>
-                            <select asp-for="TDestino" class="form-control"  asp-items="Html.GetEnumSelectList<TDestino>()"></select>
+                            <select asp-for="TDestino" class="form-control" asp-items="Html.GetEnumSelectList<TDestino>()"></select>
                             <span asp-validation-for="TDestino" class="text-danger"></span>
                         </div>
-                         <div class="form-group">
+                        <div class="form-group">
                             <label asp-for="Img3" class="form-label"></label>
-                            <input asp-for="Img3" class="form-control"/>
+                            <input asp-for="Img3" class="form-control"  />
                             <span asp-validation-for="Img3" class="text-danger"></span>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-12">
-                       Previsualización Imagen 1: <img width="100%" height="385" id="ImageUrlPreview" />
-                    </div>
+                    Previsualización Imagen 1: <img width="100%" height="385" id="ImageUrlPreview" />
+                </div>
                 <div class="col-md-12">
-                       Previsualización Imagen 2: <img width="100%" height="385" id="ImageUrlPreview2" />
-                    </div>
+                    Previsualización Imagen 2: <img width="100%" height="385" id="ImageUrlPreview2" />
+                </div>
                 <div class="col-md-12">
-                       Previsualización Imagen 3: <img width="100%" height="385" id="ImageUrlPreview3" />
-                    </div>
+                    Previsualización Imagen 3: <img width="100%" height="385" id="ImageUrlPreview3" />
+                </div>
 
-                    
-                    <div class="form-group">
-                        <input type="submit" value="Create" class="btn btn-outline-success float-right" />
-                        <a class="btn btn-outline-secondary" asp-action="Index">Show all</a>
-                    </div>
+
+                <div class="form-group vstack gap-2 col-md-5 mx-auto mt-4">
+                    <input type="submit" value="Guardar" class="btn btn-secondary float-right" />
+                    <a class="btn btn-info" asp-action="Index"><i class="bi bi-arrow-return-left"></i></a>
+                </div>
             </form>
         </div>
     </div>
 </div>
-@section Scripts{ 
+@section Scripts{
     <script>
-        $("#Img").on("change", function () {
+        $("#Img").on("change", function() {
             var output = document.getElementById("ImageUrlPreview");
             output.src = $(this).val();
         })
-        $("#Img2").on("change", function () {
+        $("#Img2").on("change", function() {
             var output = document.getElementById("ImageUrlPreview2");
             output.src = $(this).val();
         })
-        $("#Img3").on("change", function () {
+        $("#Img3").on("change", function() {
             var output = document.getElementById("ImageUrlPreview3");
             output.src = $(this).val();
         })
